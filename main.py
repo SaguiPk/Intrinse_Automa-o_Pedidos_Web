@@ -149,7 +149,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
 
         except Exception as e:
             message_queue.put({'paciente': 'Abertura', 'log': 'ERRO NA CONEXÃO'})
-            message_queue.put({'paciente': 'Abertura', 'log': e})
+            message_queue.put({'paciente': 'Abertura', 'log': str(e)})
             driver.quit()
             return
 
@@ -166,7 +166,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
             message_queue.put({'paciente': 'Abertura', 'log': 'Login com sucesso!'})
         except Exception as e:
             message_queue.put({'paciente': 'Abertura', 'log': 'ERRO NO LOGIN'})
-            message_queue.put({'paciente': 'Abertura', 'log': e})
+            message_queue.put({'paciente': 'Abertura', 'log': str(e)})
             driver.quit()
             return
 
@@ -241,7 +241,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
 
                 except Exception as e:
                     message_queue.put({'paciente': paciente, 'log': 'ERRO na extração dos dados'})
-                    message_queue.put({'paciente': paciente, 'log': e})
+                    message_queue.put({'paciente': paciente, 'log': str(e)})
                     driver.get(r'https://saude.sulamericaseguros.com.br/prestador/segurado/validacao-de-procedimentos-tiss-3/validacao-de-procedimentos/solicitacao/')
                     time.sleep(1.5)
 
@@ -272,7 +272,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
                     driver.find_element(By.CLASS_NAME, 'sas-form-submit').click()
                 except Exception as e:
                     message_queue.put({'paciente': paciente, 'log': 'ERRO - codigo de beneficiario'})
-                    message_queue.put({'paciente': paciente, 'log': e})
+                    message_queue.put({'paciente': paciente, 'log': str(e)})
                     driver.get(r'https://saude.sulamericaseguros.com.br/prestador/segurado/validacao-de-procedimentos-tiss-3/validacao-de-procedimentos/solicitacao/')
                     time.sleep(1.5)
 
@@ -299,7 +299,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
 
                 except Exception as e:
                     message_queue.put({'paciente': paciente, 'log': 'ERRO ao selecionar o tipo de solicitação'})
-                    message_queue.put({'paciente': paciente, 'log': e})
+                    message_queue.put({'paciente': paciente, 'log': str(e)})
                     driver.get(r'https://saude.sulamericaseguros.com.br/prestador/segurado/validacao-de-procedimentos-tiss-3/validacao-de-procedimentos/solicitacao/')
                     time.sleep(1.5)
 
@@ -378,7 +378,7 @@ def run_automation(message_queue, pedidos, psico_selec, files_encamin, stop_even
 
                 except Exception as e:
                     message_queue.put({'paciente': paciente, 'log': 'ERRO ao preencher a solicitação'})
-                    message_queue.put({'paciente': paciente, 'log': e})
+                    message_queue.put({'paciente': paciente, 'log': str(e)})
                     driver.get(r'https://saude.sulamericaseguros.com.br/prestador/segurado/validacao-de-procedimentos-tiss-3/validacao-de-procedimentos/solicitacao/')
                     time.sleep(1.5)
 
