@@ -768,7 +768,7 @@ if st.session_state.arquivo_pacientes is not None:
                     else:
                         st.write(st.session_state.pedidos)
 
-            if st.button('Iniciar Automação', type='primary', on_click=gerar_pedido, disabled=st.session_state.run_thread.is_alive(), use_container_width=True):
+            if st.button('Iniciar Automação', type='primary', on_click=gerar_pedido, use_container_width=True):
                 st.session_state.status_log = {}
                 st.session_state.process_running = False
             st.session_state.auto_incoberta = st.checkbox('Navegador Incoberta', value=True, key='auto_incoberta_check')
